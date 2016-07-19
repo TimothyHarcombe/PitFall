@@ -5,6 +5,7 @@ public class FromWorldPointTextPositioner : IFloatingTextPositioner {
 	private readonly Vector3 _worldPosition;
 	private float _timeToLive;
 	private readonly float _speed;
+	private float _yoffset;
 
 	public FromWorldPointTextPositioner(Camera camera, Vector3 worldPosition, float timeToLive, float speed){
 		_camera = camera;
@@ -14,6 +15,14 @@ public class FromWorldPointTextPositioner : IFloatingTextPositioner {
 	}
 
 	public bool GetPosition (ref Vector2 position, GUIContent content, Vector2 size){
-		
+		if ((_timeToLive -= Time.deltaTime) <= 0)
+			return false;
+
+		var screenPosition = _camera.WorldToScreenPoint (_worldPosition);
+		position.x = screenPosition.x - (size.x / 2);
+		position.y = Screen.height - screenPosition.y - _yoffset;
+
+		_yoffset += Time.deltaTime * _speed;
+		return true;
 	}
 }

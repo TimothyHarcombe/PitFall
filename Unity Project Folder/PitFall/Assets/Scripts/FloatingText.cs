@@ -4,12 +4,13 @@ using System.Collections;
 public class FloatingText : MonoBehaviour {
 	private static readonly GUISkin Skin = Resources.Load<GUISkin>("GameSkin");
 
-	public static FloatingText Show (string text, string style, IFloatingTextPositioner positioner) {
+	public static FloatingText Show(string text, string style, IFloatingTextPositioner positioner) {
 		var go = new GameObject ("Floating Text");
 		var floatingText = go.AddComponent<FloatingText> ();
 		floatingText.Style = Skin.GetStyle (style);
 		floatingText._positioner = positioner;
 		floatingText._content = new GUIContent (text);
+		return floatingText;
 	}
 
 	private GUIContent _content;
