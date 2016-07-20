@@ -10,6 +10,7 @@ public class FloatingText : MonoBehaviour {
 		floatingText.Style = Skin.GetStyle (style);
 		floatingText._positioner = positioner;
 		floatingText._content = new GUIContent (text);
+		return floatingText;
 	}
 
 	private GUIContent _content;
