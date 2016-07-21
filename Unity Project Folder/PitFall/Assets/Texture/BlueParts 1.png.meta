@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c27e04e5e564c2643ac83e469d25928c
-timeCreated: 1468239303
+timeCreated: 1469122615
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -63,30 +63,30 @@ TextureImporter:
         y: 723
         width: 281
         height: 261
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 131.5, y: 17.5}
-        - {x: 101.5, y: 50.5}
-        - {x: 115.5, y: 101.5}
-        - {x: 104.5, y: 105.5}
-        - {x: 74.5, y: 86.5}
-        - {x: 59.5, y: 72.5}
-        - {x: 6.5, y: 130.5}
-        - {x: -17.5, y: 130.5}
-        - {x: -35.5, y: 86.5}
-        - {x: -96.5, y: 104.5}
-        - {x: -128.5, y: 48.5}
-        - {x: -111.5, y: -5.5}
-        - {x: -140.5, y: -7.5}
-        - {x: -140.5, y: -28.5}
-        - {x: -104.5, y: -93.5}
-        - {x: -44.5, y: -130.5}
-        - {x: 68.5, y: -130.5}
-        - {x: 129.5, y: -95.5}
-        - {x: 140.5, y: -62.5}
-        - {x: 140.5, y: -20.5}
+      - - {x: 131.5, y: 148}
+        - {x: 101.5, y: 181}
+        - {x: 115.5, y: 232}
+        - {x: 104.5, y: 236}
+        - {x: 74.5, y: 217}
+        - {x: 59.5, y: 203}
+        - {x: 6.5, y: 261}
+        - {x: -17.5, y: 261}
+        - {x: -35.5, y: 217}
+        - {x: -96.5, y: 235}
+        - {x: -128.5, y: 179}
+        - {x: -111.5, y: 125}
+        - {x: -140.5, y: 123}
+        - {x: -140.5, y: 102}
+        - {x: -104.5, y: 37}
+        - {x: -44.5, y: 0}
+        - {x: 68.5, y: 0}
+        - {x: 129.5, y: 35}
+        - {x: 140.5, y: 68}
+        - {x: 140.5, y: 110}
     - name: BlueRightArm
       rect:
         serializedVersion: 2
@@ -94,18 +94,18 @@ TextureImporter:
         y: 624
         width: 122
         height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 3
+      pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 20, y: 48}
-        - {x: -12, y: 36}
-        - {x: -61, y: -18}
-        - {x: -61, y: -48}
-        - {x: -24, y: -48}
-        - {x: 58, y: 1}
-        - {x: 61, y: 12}
-        - {x: 61, y: 48}
+      - - {x: -41, y: 0}
+        - {x: -73, y: -12}
+        - {x: -122, y: -66}
+        - {x: -122, y: -96}
+        - {x: -85, y: -96}
+        - {x: -3, y: -47}
+        - {x: 0, y: -36}
+        - {x: 0, y: 0}
     - name: BlueLeftArm
       rect:
         serializedVersion: 2
@@ -113,15 +113,15 @@ TextureImporter:
         y: 676
         width: 159
         height: 52
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 45.5, y: -26}
-        - {x: 79.5, y: -21}
-        - {x: 79.5, y: 26}
-        - {x: -79.5, y: 26}
-        - {x: -79.5, y: -26}
+      - - {x: 125, y: -26}
+        - {x: 159, y: -21}
+        - {x: 159, y: 26}
+        - {x: 0, y: 26}
+        - {x: 0, y: -26}
     - name: BlueBody
       rect:
         serializedVersion: 2
@@ -147,20 +147,20 @@ TextureImporter:
         y: 3
         width: 82
         height: 116
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 3
+      pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -13, y: 58}
-        - {x: -36, y: 26}
-        - {x: -41, y: -2}
-        - {x: -41, y: -44}
-        - {x: -16, y: -58}
-        - {x: 18, y: -58}
-        - {x: 24, y: -56}
-        - {x: 41, y: -9}
-        - {x: 41, y: 56}
-        - {x: 40, y: 58}
+      - - {x: -54, y: 0}
+        - {x: -77, y: -32}
+        - {x: -82, y: -60}
+        - {x: -82, y: -102}
+        - {x: -57, y: -116}
+        - {x: -23, y: -116}
+        - {x: -17, y: -114}
+        - {x: 0, y: -67}
+        - {x: 0, y: -2}
+        - {x: -1, y: 0}
     outline: []
   spritePackingTag: 
   userData: 
