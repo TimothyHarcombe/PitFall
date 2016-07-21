@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// This class is used with the CharacterController2D class works out the colliding parameters on the player
+
+using UnityEngine;
 using System.Collections;
 
 public class ControllerState2D {

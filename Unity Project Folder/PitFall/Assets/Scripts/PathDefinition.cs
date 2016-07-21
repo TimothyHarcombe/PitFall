@@ -1,4 +1,6 @@
-﻿using System;
+﻿//This class is used to define the path of the platforms in the scene view and is not shown in the game view
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;

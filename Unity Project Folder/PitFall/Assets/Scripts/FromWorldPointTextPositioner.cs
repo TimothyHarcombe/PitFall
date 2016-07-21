@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// This class is used to control the floting text position on the screen while in game play
+
+using UnityEngine;
 
 public class FromWorldPointTextPositioner : IFloatingTextPositioner {
 	private readonly Camera _camera;

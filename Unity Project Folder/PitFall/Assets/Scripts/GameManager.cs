@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// This class is used to control the points system in the game
+
+using UnityEngine;
 using System.Collections;
 
 public class GameManager {

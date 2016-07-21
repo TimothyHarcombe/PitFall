@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/*This class is the main class for the player it controls everything that is needed on the player for example:
+ * the speed of the player,the height the player can jump, the gravity on the player, if the player is standing on a platform, 
+ * what happens to the player at a checkpoint and when the player is killed*/
+
+using UnityEngine;
 using System.Collections;
 
 public class Player : MonoBehaviour

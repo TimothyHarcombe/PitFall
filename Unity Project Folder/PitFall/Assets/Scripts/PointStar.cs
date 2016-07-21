@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//This class is used to control the points on the stars in the game
+
+using UnityEngine;
 
 public class PointStar : MonoBehaviour, IPlayerRespawnListener {
 	public GameObject Effect;

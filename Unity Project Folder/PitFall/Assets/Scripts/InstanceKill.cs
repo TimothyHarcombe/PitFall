@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//This class is used to control the players instant kill method
+
+using UnityEngine;
 using System.Collections;
 
 public class InstanceKill : MonoBehaviour {

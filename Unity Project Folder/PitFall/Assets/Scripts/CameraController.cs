@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// This class is used to control the camera and to link it to the players character
+
+using UnityEngine;
 using System.Collections;
 
 public class CameraController : MonoBehaviour {

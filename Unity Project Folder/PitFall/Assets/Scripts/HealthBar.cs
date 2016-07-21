@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//This class is used the give the player a health bar to show how much health the player has in the game
+using UnityEngine;
 using System.Collections;
 
 public class HealthBar : MonoBehaviour {

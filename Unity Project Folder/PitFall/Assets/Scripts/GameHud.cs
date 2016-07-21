@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//This class is used to control the time bonus in the game at each checkpoint and works with the GameManager and LevelManager class
+
+using UnityEngine;
 using System.Collections;
 
 public class GameHud : MonoBehaviour {

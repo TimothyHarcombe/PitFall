@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//This class is used for the checkpoints in the game
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -10,10 +12,13 @@ public class Checkpoint : MonoBehaviour {
 	}
 
 	public void PlayerHitCheckpoint () {
+		StartCoroutine (PlayerHitCheckpointCo (LevelManager.Instance.CurrentTimeBonus));
 	}
 
 	private IEnumerator PlayerHitCheckpointCo (int bonus) {
-		yield break;
+		FloatingText.Show ("Chechpoint!", "CheckpointText", new CenteredTextPositioner (.5f));
+		yield return new WaitForSeconds (.5f);
+		FloatingText.Show (string.Format ("+{0} time bonus!", bonus), "CheckpointText", new CenteredTextPositioner (.5f));
 	}
 
 	public void PlayerLeftCheckpoint () {

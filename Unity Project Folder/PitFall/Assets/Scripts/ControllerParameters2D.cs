@@ -1,4 +1,6 @@
-﻿using System;
+﻿// This class is used with the CharacterController2D class for the gravity and how fast the player will slide on a slope
+
+using System;
 using UnityEngine;
 using System.Collections;
 

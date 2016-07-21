@@ -1,4 +1,6 @@
-﻿using System;
+﻿//This is the level manager class that controls what happens in the levels of the game
+
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;

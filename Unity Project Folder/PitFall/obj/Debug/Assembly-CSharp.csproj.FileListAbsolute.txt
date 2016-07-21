@@ -19,3 +19,24 @@ F:\Job challenge\Project\Unity Project Folder\PitFall\Temp\bin\Debug\UnityEngine
 F:\Job challenge\Project\Unity Project Folder\PitFall\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 F:\Job challenge\Project\Unity Project Folder\PitFall\obj\Debug\Assembly-CSharp.dll
 F:\Job challenge\Project\Unity Project Folder\PitFall\obj\Debug\Assembly-CSharp.pdb
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\UnityEditor.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\UnityEngine.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\UnityEngine.Networking.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\Unity.SerializationLogic.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\Unity.UNetWeaver.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\Unity.CecilTools.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\UnityEngine.xml
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\UnityEditor.xml
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\UnityEngine.UI.xml
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\obj\Debug\Assembly-CSharp.dll
+C:\Users\tharcombe\Desktop\GitHub\PitFall\Unity Project Folder\PitFall\obj\Debug\Assembly-CSharp.pdb

@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/*This class is used to control the players character for example the movement of the character, jumping,
+ * if the character is standing on a slope to slide down the slope and the damage area on the character*/
+
+using UnityEngine;
 using System.Collections;
 
 public class CharacterController2D : MonoBehaviour

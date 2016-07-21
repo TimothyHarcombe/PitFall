@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//This class is use to control the floating text in the Gameskin resourse and is referenced in PointStar, Checkpoint, Player, LevelManager and GameHud 
+
+using UnityEngine;
 using System.Collections;
 
 public class FloatingText : MonoBehaviour {

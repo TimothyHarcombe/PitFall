@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//This class it use to give the player damage in the game and to react to the damage given for example get hit backwards
+
+using UnityEngine;
 using System.Collections;
 
 public class GivesDamageToPlayer : MonoBehaviour {
