@@ -14,7 +14,7 @@ public class GameHud : MonoBehaviour {
 			{
 				GUILayout.Label (string.Format ("Points: {0}", GameManager.Instance.Points), Skin.GetStyle ("PointsText"));
 
-                GUILayout.Label(string.Format("Lives: {0}", Player.Instance.lives), Skin.GetStyle("PlayerLives"));
+                GUILayout.Label(string.Format("Lives: {0}", Player.Instance().lives), Skin.GetStyle("PlayerLives"));
 
                 var time = LevelManager.Instance.RunningTime;
 				GUILayout.Label (string.Format ("{0:00}:{1:00} with {2} bonus", time.Minutes + (time.Hours * 60), time.Seconds,

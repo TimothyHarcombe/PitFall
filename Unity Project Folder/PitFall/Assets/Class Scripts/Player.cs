@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private static Player _instance;
-    public static Player Instance { get { return _instance ?? (_instance = new Player()); } }
+    public static Player Instance() { return _instance; }
 
     private bool _isFacingRight;
     private CharacterController2D _controller;
@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 	public int MaxHealth = 100;
 	public GameObject OuchEffect;
 	public Animator Animator;
+    public int playerLives;
 
     public int lives { get; private set; }
     public int Health { get; private set; }
@@ -27,10 +28,17 @@ public class Player : MonoBehaviour
     private Player() {
     }
 
-    public void Awake() {
+    public void Awake()
+    {
+        if (Instance() != null && Instance() != this)
+            Destroy(gameObject);
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+         
         _controller = GetComponent<CharacterController2D>();
         _isFacingRight = transform.right.x > 0;
 		Health = MaxHealth;
+        lives = playerLives;
     }
 
     public void Update () {
@@ -76,8 +84,19 @@ public class Player : MonoBehaviour
 		Instantiate (OuchEffect, transform.position, transform.rotation);
 		Health -= damage;
 
-		if (Health <= 0)
-			LevelManager.Instance.KillPlayer ();
+		if (Health <= 0) {
+            SubtractLife();
+            if (lives < 1)
+            {
+                // Game over function call
+                // I.E LevelManager.Instance.GameOver;
+            }
+            else
+            {
+                LevelManager.Instance.KillPlayer();
+                ResetHealth();
+            }
+            }
 	}
 
     private void HandleInput () {
@@ -130,7 +149,7 @@ public class Player : MonoBehaviour
         Debug.LogFormat(string.Format ("Flipped"));
     }
 
-    public void PlayerLives()
+    public void SubtractLife()
     {
         lives = lives - 1;
     }
@@ -138,5 +157,9 @@ public class Player : MonoBehaviour
     public int GetPlayerLives()
     {
         return lives;
+    }
+    public void ResetHealth()
+    {
+        Health = MaxHealth;
     }
 }
