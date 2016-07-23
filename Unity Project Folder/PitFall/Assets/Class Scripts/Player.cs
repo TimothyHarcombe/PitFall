@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private static Player _instance;
+    public static Player Instance { get { return _instance ?? (_instance = new Player()); } }
+
     private bool _isFacingRight;
     private CharacterController2D _controller;
     private float _normalizedHorizontalSpeed;
@@ -16,14 +19,17 @@ public class Player : MonoBehaviour
 	public int MaxHealth = 100;
 	public GameObject OuchEffect;
 	public Animator Animator;
-    public int lives;
 
-	public int Health { get; private set; }
+    public int lives { get; private set; }
+    public int Health { get; private set; }
 	public bool IsDead { get; private set; }
+
+    private Player() {
+    }
 
     public void Awake() {
         _controller = GetComponent<CharacterController2D>();
-        _isFacingRight = transform.localScale.x > 0;
+        _isFacingRight = transform.right.x > 0;
 		Health = MaxHealth;
     }
 
@@ -110,7 +116,7 @@ public class Player : MonoBehaviour
 
     private void Flip() {
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        _isFacingRight = transform.localScale.x > 0;
+        _isFacingRight = transform.right.x < 0;
 
         if (!_isFacingRight)
         {
@@ -118,8 +124,9 @@ public class Player : MonoBehaviour
         }
         else
         {
-            return;
+            transform.localEulerAngles = new Vector3(0, 0, 0);
         }
+     
         Debug.LogFormat(string.Format ("Flipped"));
     }
 
