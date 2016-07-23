@@ -1,7 +1,6 @@
 ﻿//This class is used to destroy the partical system used for the player getting damage
 
 using UnityEngine;
-using System.Collections;
 
 public class AutoDestroyParticleSystem : MonoBehaviour {
 	private ParticleSystem _particaleSystem;

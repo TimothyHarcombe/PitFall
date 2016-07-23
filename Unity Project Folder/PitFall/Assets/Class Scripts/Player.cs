@@ -3,7 +3,6 @@
  * what happens to the player at a checkpoint and when the player is killed*/
 
 using UnityEngine;
-using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +16,7 @@ public class Player : MonoBehaviour
 	public int MaxHealth = 100;
 	public GameObject OuchEffect;
 	public Animator Animator;
+    public int lives;
 
 	public int Health { get; private set; }
 	public bool IsDead { get; private set; }
@@ -40,8 +40,7 @@ public class Player : MonoBehaviour
 
 		Animator.SetBool ("IsGrounded", _controller.State.IsGrounded);
 		Animator.SetBool ("IsDead", IsDead);
-		Animator.SetFloat ("Speed", Mathf.Abs (_controller.Velocity.x) / MaxSpeed);
-
+		Animator.SetFloat ("Speed", Mathf.Abs (_controller.Velocity.x) / MaxSpeed);        
     }
 
 	public void Kill () {
@@ -82,13 +81,26 @@ public class Player : MonoBehaviour
             if (!_isFacingRight)
                 Flip();
         }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            _normalizedHorizontalSpeed = 1;
+            if (!_isFacingRight)
+                Flip();
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            _normalizedHorizontalSpeed = -1;
+            if (_isFacingRight)
+                Flip();
+        }
         else if (Input.GetKey(KeyCode.A))
         {
             _normalizedHorizontalSpeed = -1;
             if (_isFacingRight)
                 Flip();
         }
-        else {
+        else
+        {
             _normalizedHorizontalSpeed = 0;
         }
         if (_controller.CanJump && Input.GetKeyDown(KeyCode.Space)) {
@@ -99,5 +111,25 @@ public class Player : MonoBehaviour
     private void Flip() {
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         _isFacingRight = transform.localScale.x > 0;
+
+        if (!_isFacingRight)
+        {
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+        else
+        {
+            return;
+        }
+        Debug.LogFormat(string.Format ("Flipped"));
+    }
+
+    public void PlayerLives()
+    {
+        lives = lives - 1;
+    }
+
+    public int GetPlayerLives()
+    {
+        return lives;
     }
 }
