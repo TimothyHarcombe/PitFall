@@ -5,6 +5,7 @@ using UnityEngine;
 public class PathedProjectile : MonoBehaviour {
 	private Transform _destination;
 	private float _speed;
+	public AudioClip DestroySound;
 
 	public GameObject DestroyEffect;
 	public void Initalize (Transform destination, float speed) {
@@ -23,5 +24,8 @@ public class PathedProjectile : MonoBehaviour {
 			Instantiate (DestroyEffect, transform.position, transform.rotation);
 
 		Destroy (gameObject);
+
+		if (DestroySound != null)
+			AudioSource.PlayClipAtPoint (DestroySound, transform.position);
 	}
 }

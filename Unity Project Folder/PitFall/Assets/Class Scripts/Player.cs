@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 	public GameObject OuchEffect;
 	public Animator Animator;
     public int playerLives;
+	public AudioClip PlayerHitSound;
+	public AudioClip PlayerDeathSound;
 
     public int lives { get; private set; }
     public int Health { get; private set; }
@@ -57,6 +59,11 @@ public class Player : MonoBehaviour
 		Animator.SetFloat ("Speed", Mathf.Abs (_controller.Velocity.x) / MaxSpeed);        
     }
 
+	public void FinishLevel(){
+		enabled = false;
+		_controller.enabled = false;
+	}
+
 	public void Kill () {
 		_controller.HandleCollisions = false;
 		GetComponent<Collider2D>().enabled = false;
@@ -64,6 +71,9 @@ public class Player : MonoBehaviour
 		Health = 0;
 
 		_controller.SetForce (new Vector2 (0, 20));
+
+		if (PlayerDeathSound != null)
+			AudioSource.PlayClipAtPoint (PlayerDeathSound, transform.position);
 	}
 
 	public void RespawnAt (Transform spawnPoint) {
@@ -79,6 +89,9 @@ public class Player : MonoBehaviour
 	}
 
 	public void TakeDamage (int damage) {
+		if (PlayerHitSound != null)
+			AudioSource.PlayClipAtPoint (PlayerHitSound, transform.position);
+		
 		FloatingText.Show (string.Format ("-{0}", damage), "PlayerTakeDamageText", new FromWorldPointTextPositioner (Camera.main, transform.position, 2f, 60f));
 
 		Instantiate (OuchEffect, transform.position, transform.rotation);
@@ -88,7 +101,8 @@ public class Player : MonoBehaviour
             SubtractLife();
             if (lives < 1)
             {
-                // Game over function call
+				//LevelManager.Instance.GameOver;
+				// Game over function call
                 // I.E LevelManager.Instance.GameOver;
             }
             else
