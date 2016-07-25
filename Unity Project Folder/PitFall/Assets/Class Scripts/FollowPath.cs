@@ -1,9 +1,7 @@
 ﻿//Is used to control the path, speed and direction of the platforms in the game
 
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 public class FollowPath : MonoBehaviour {
 
