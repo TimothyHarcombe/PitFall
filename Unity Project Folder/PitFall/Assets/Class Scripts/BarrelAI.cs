@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -72,4 +72,4 @@ public class BarrelAI : MonoBehaviour {
             Gizmos.DrawLine(points[i - 1].position, points[i].position);
         }
     }
-}
+}*/
