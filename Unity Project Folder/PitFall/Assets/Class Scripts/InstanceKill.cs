@@ -11,17 +11,14 @@ public class InstanceKill : MonoBehaviour {
 		var player = other.GetComponent<Player> ();
 		if (player == null)
 			return;
-        if (player.lives < 1)
-        {
-			//GameOver.Instance.OnTriggerEnter2D();
-            // Game over function call
-            // I.E LevelManager.Instance.GameOver;
-        }
-        else
-        {
-            LevelManager.Instance.KillPlayer();
-            player.ResetHealth();
-            player.SubtractLife();
-        }
+		if (player.lives < 0) {
+			
+			// Game over function call
+			// I.E LevelManager.Instance.GameOver;
+		} else {
+			LevelManager.Instance.KillPlayer();
+			player.ResetHealth();
+			player.SubtractLife();
+		}
 	}
 }

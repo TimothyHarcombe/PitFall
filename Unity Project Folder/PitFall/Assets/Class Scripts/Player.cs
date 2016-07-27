@@ -99,18 +99,15 @@ public class Player : MonoBehaviour
 
 		if (Health <= 0) {
             SubtractLife();
-            if (lives < 1)
+            if (lives < 0)
             {
-				//LevelManager.Instance.GameOver;
 				// Game over function call
-                // I.E LevelManager.Instance.GameOver;
-            }
-            else
-            {
-                LevelManager.Instance.KillPlayer();
-                ResetHealth();
-            }
-            }
+                // I.E LevelManager.Instance.GameOver
+			} else {
+				LevelManager.Instance.KillPlayer();
+				ResetHealth();
+			}      
+         }
 	}
 
     private void HandleInput () {

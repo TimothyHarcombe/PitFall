@@ -1,49 +1,40 @@
 ﻿/*using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class BarrelPath : MonoBehaviour {
 
-    public enum FollowType
-    {
-        MoveTowards,
-        Lerp
-    }
-    public FollowType Type = FollowType.MoveTowards;
-    public BarrelAI Path;
-    public float Speed = 1;
-    public float MaxDistanceToGoal = .1f;
+	public Transform[] Destinations;
 
-    private IEnumerator<Transform> _currentPoint;
+	public IEnumerator<Transform> GetPathEnumerator(){
+		if (Destinations == null || Destinations.Length < 1)
+			yield break;
+		var direction = 1;
+		var index = 0;
+		while (true) {
+			yield return Destinations [index];
+			if (Destinations.Length == 1)
+				continue;
+			if (index <=0)
+				direction = 1;
+			else if (index >= Destinations.Length - 1)
+				direction = -1;
+			index = index + direction;
+		}
+	}
 
-    public void Start()
-    {
-        if (Path == null)
-        {
-            Debug.LogError("Path cannot be null", gameObject);
-        }
+	public void OnDrawGizmos ()
+	{
 
-        _currentPoint = Path.GetPathEnumerator();
-        _currentPoint.MoveNext();
+		if (Destinations == null || Destinations.Length < 2)
+			return;
 
-        if (_currentPoint.Current == null)
-            return;
+		var Destinations = Destinations.Where (t => t != null).ToList ();
+		if (Destinations.Count < 2)
+			return;
 
-        transform.position = _currentPoint.Current.position;
-    }
-
-    public void Update()
-    {
-        if (_currentPoint == null || _currentPoint.Current == null)
-            return;
-
-        if (Type == FollowType.MoveTowards)
-            transform.position = Vector3.MoveTowards(transform.position, _currentPoint.Current.position, Time.deltaTime * Speed);
-        else if (Type == FollowType.Lerp)
-            transform.position = Vector3.Lerp(transform.position, _currentPoint.Current.position, Time.deltaTime * Speed);
-
-        var distanceSquared = (transform.position - _currentPoint.Current.position).sqrMagnitude;
-        if (distanceSquared < MaxDistanceToGoal * MaxDistanceToGoal)
-            _currentPoint.MoveNext();
-
-    }
+		for (var i = 1; i < Destinations.Count; i++) {
+			Gizmos.DrawLine (Destinations [i - 1].position, Destinations [i].position);
+		}
+	}
 }*/

@@ -20,5 +20,7 @@ public class CameraController : MonoBehaviour {
 		float positionY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
 
 		transform.position = new Vector3 (positionX, positionY, transform.position.z);
+
+
 	}
 }
