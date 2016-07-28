@@ -101,6 +101,7 @@ public class Player : MonoBehaviour
             SubtractLife();
             if (lives < 0)
             {
+				return;
 				// Game over function call
                 // I.E LevelManager.Instance.GameOver
 			} else {

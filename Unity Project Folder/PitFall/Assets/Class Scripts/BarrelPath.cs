@@ -1,40 +1,32 @@
-﻿/*using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
 public class BarrelPath : MonoBehaviour {
 
-	public Transform[] Destinations;
+	private Transform _enddestination;
+	private float _speed;
+	public AudioClip DestroySound;
 
-	public IEnumerator<Transform> GetPathEnumerator(){
-		if (Destinations == null || Destinations.Length < 1)
-			yield break;
-		var direction = 1;
-		var index = 0;
-		while (true) {
-			yield return Destinations [index];
-			if (Destinations.Length == 1)
-				continue;
-			if (index <=0)
-				direction = 1;
-			else if (index >= Destinations.Length - 1)
-				direction = -1;
-			index = index + direction;
-		}
+	public GameObject DestroyEffect;
+	public void Initalize (Transform enddestination, float speed) {
+		_enddestination = enddestination;
+		_speed = speed;
 	}
 
-	public void OnDrawGizmos ()
-	{
+	public void Update () {
+		transform.position = Vector3.MoveTowards (transform.position, _enddestination.position, Time.deltaTime * _speed);
 
-		if (Destinations == null || Destinations.Length < 2)
+		var distanceSquared = (_enddestination.transform.position - transform.position).sqrMagnitude;
+		if (distanceSquared > .01f * .01f)
 			return;
 
-		var Destinations = Destinations.Where (t => t != null).ToList ();
-		if (Destinations.Count < 2)
-			return;
+		if (DestroyEffect != null)
+			Instantiate (DestroyEffect, transform.position, transform.rotation);
 
-		for (var i = 1; i < Destinations.Count; i++) {
-			Gizmos.DrawLine (Destinations [i - 1].position, Destinations [i].position);
-		}
+		Destroy (gameObject);
+
+		if (DestroySound != null)
+			AudioSource.PlayClipAtPoint (DestroySound, transform.position);
 	}
-}*/
+}
