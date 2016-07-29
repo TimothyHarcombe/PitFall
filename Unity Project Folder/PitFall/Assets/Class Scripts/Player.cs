@@ -13,13 +13,13 @@ public class Player : MonoBehaviour
     private CharacterController2D _controller;
     private float _normalizedHorizontalSpeed;
 
-    public float MaxSpeed = 8;
+	public int playerLives;
+	public float MaxSpeed = 8;
     public float SpeedAccelerationOnGround = 10f;
     public float SpeedAccelerationInAir = 5f;
 	public int MaxHealth = 100;
 	public GameObject OuchEffect;
 	public Animator Animator;
-    public int playerLives;
 	public AudioClip PlayerHitSound;
 	public AudioClip PlayerDeathSound;
 
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
          
-        _controller = GetComponent<CharacterController2D>();
+		_controller = GetComponent<CharacterController2D>();
         _isFacingRight = transform.right.x > 0;
 		Health = MaxHealth;
         lives = playerLives;
@@ -45,18 +45,19 @@ public class Player : MonoBehaviour
 
     public void Update () {
 		if (!IsDead)
-			HandleInput();
-
+			HandleInput ();
+		
         var movemontFactor = _controller.State.IsGrounded ? SpeedAccelerationOnGround : SpeedAccelerationInAir;
 
-		if (IsDead)
+		if (IsDead) 
 			_controller.SetHorizontalForce (0);
-		else
-        _controller.SetHorizontalForce(Mathf.Lerp(_controller.Velocity.x, _normalizedHorizontalSpeed * MaxSpeed, Time.deltaTime * movemontFactor));
+		 else 
+			_controller.SetHorizontalForce (Mathf.Lerp (_controller.Velocity.x, _normalizedHorizontalSpeed * MaxSpeed, Time.deltaTime * movemontFactor));
 
-		Animator.SetBool ("IsGrounded", _controller.State.IsGrounded);
-		Animator.SetBool ("IsDead", IsDead);
-		Animator.SetFloat ("Speed", Mathf.Abs (_controller.Velocity.x) / MaxSpeed);        
+			Animator.SetBool ("IsGrounded", _controller.State.IsGrounded);
+			Animator.SetBool ("IsDead", IsDead);
+			Animator.SetFloat ("Speed", Mathf.Abs (_controller.Velocity.x) / MaxSpeed);
+
     }
 
 	public void FinishLevel(){

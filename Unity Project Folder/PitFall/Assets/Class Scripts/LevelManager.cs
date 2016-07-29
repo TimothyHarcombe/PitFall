@@ -2,6 +2,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,9 +101,9 @@ public class LevelManager : MonoBehaviour {
 		yield return new WaitForSeconds (5f);
 
 		if (string.IsNullOrEmpty (levelName))
-			Application.LoadLevel ("StartScene");
+			SceneManager.LoadScene ("StartScene");
 		else
-			Application.LoadLevel (levelName);
+			SceneManager.LoadScene (levelName);
 	}
 
 	public void KillPlayer () {

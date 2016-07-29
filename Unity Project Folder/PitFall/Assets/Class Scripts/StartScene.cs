@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class StartScene : MonoBehaviour {
@@ -9,7 +10,6 @@ public class StartScene : MonoBehaviour {
 			return;
 
 		GameManager.Instance.Reset ();
-		Application.LoadLevel (LoadLevel);
-
+		SceneManager.LoadScene (LoadLevel);
 	}
 }

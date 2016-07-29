@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class GameOverManager : MonoBehaviour {
 			restartTimer += Time.deltaTime;
 
 			if (restartTimer >= restartDelay) {
-				Application.LoadLevel ("StartScene");
+				SceneManager.LoadScene ("StartScene");
 				Destroy (gameObject);
 			}
 		}
