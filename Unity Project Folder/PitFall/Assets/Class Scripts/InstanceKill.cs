@@ -1,13 +1,11 @@
-﻿//This class is used to control the players instant kill method
+﻿//This class is used to control the players instant kill method. Got it from Udemy
 
 using UnityEngine;
-using System.Collections;
 
 public class InstanceKill : MonoBehaviour {
 
-	private LevelManager levelManager;
-
-	public void OnTriggerEnter2D(Collider2D other) {
+	public void OnTriggerEnter2D(Collider2D other)
+    {
 		var player = other.GetComponent<Player> ();
 		if (player == null){
 			return;

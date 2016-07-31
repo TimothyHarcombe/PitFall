@@ -1,8 +1,5 @@
 ﻿// This class is used with the CharacterController2D class works out the colliding parameters on the player
 
-using UnityEngine;
-using System.Collections;
-
 public class ControllerState2D {
 	public bool IsCollidingRight { get; set; }
 	public bool IsCollidingLeft { get; set; }
@@ -15,7 +12,8 @@ public class ControllerState2D {
 
 	public bool HasCollision {get { return IsCollidingRight || IsCollidingLeft || IsCollidingAbove || IsCollidingBelow; }}
 
-	public void Reset(){
+	public void Reset()//Used to set the movement and collision states for the character
+    {
 		IsMovingUpSlope = 
 			IsMovingDownSlope =
 				IsCollidingLeft =

@@ -1,8 +1,8 @@
 ﻿/*This class is used to control the players character for example the movement of the character, jumping,
- * if the character is standing on a slope to slide down the slope and the damage area on the character*/
+ * if the character is standing on a slope to slide down the slope and the damage area on the character.
+ * I got this from Udemy*/
 
 using UnityEngine;
-using System.Collections;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class CharacterController2D : MonoBehaviour
 	public GameObject StandingOn { get; private set; }
 	public Vector3 PlatformVelocity { get; private set; }
 
-	public bool CanJump
+	public bool CanJump //Lets the character know where he can jump
 	{
 		get
 		{
@@ -72,27 +72,27 @@ public class CharacterController2D : MonoBehaviour
 		_verticalDistanceBetweenRays = colliderHeight / (TotalHorizontalRays - 1);
 	}
 
-	public void AddForce(Vector2 force)
+	public void AddForce(Vector2 force) //Used to adds the force to the character
 	{
 		_velocity = force;
 	}
 
-	public void SetForce(Vector2 force)
+	public void SetForce(Vector2 force)//Used to set the force to the character
 	{
 		_velocity += force;
 	}
 
-	public void SetHorizontalForce(float x)
+	public void SetHorizontalForce(float x)//Used to set the Horizontal force on the character
 	{
 		_velocity.x = x;
 	}
 
-	public void SetVerticalForce(float y)
+	public void SetVerticalForce(float y)//Used to set the vertical force on the character
 	{
 		_velocity.y = y;
 	}
 
-	public void Jump()
+	public void Jump() //Used to add the force on the character when jumping
 	{
 		AddForce(new Vector2(0, Parameters.JumpMagnitude));
 		_jumpIn = Parameters.JumpFrequency;
@@ -105,12 +105,13 @@ public class CharacterController2D : MonoBehaviour
 		Move(Velocity * Time.deltaTime);
 	}
 
-	private void Move(Vector2 deltaMovement)
+	private void Move(Vector2 deltaMovement) //This is used to set the movement of the character
 	{
 		var wasGrounded = State.IsCollidingBelow;
 		State.Reset();
 
-		if (HandleCollisions)
+        //Handle the characters collision for the damage, platforms and death 
+        if (HandleCollisions)
 		{
 			HandlePlatforms();
 			CalculateRayOrigins();
@@ -161,7 +162,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	private void HandlePlatforms()
+	private void HandlePlatforms() //This is used to handle what the character does on the platform
 	{
 		if (StandingOn != null)
 		{
@@ -179,7 +180,7 @@ public class CharacterController2D : MonoBehaviour
 		StandingOn = null;
 	}
 
-	private void CorrectHorizontalPlacement(ref Vector2 deltaMovement, bool isRight)
+	private void CorrectHorizontalPlacement(ref Vector2 deltaMovement, bool isRight) //This is used to handle the placement of the character in the game, if the character is facing right or left
 	{
 		var halfWidth = (_boxCollider.size.x * _localScale.x) / 2f;
 		var rayOrigin = isRight ? _raycastBottomRight : _raycastBottomLeft;
@@ -206,7 +207,7 @@ public class CharacterController2D : MonoBehaviour
 		deltaMovement.x += offset;
 	}
 
-	private void CalculateRayOrigins()
+	private void CalculateRayOrigins() //This is used to calculate the rays on the character to indicate to the game where to take damage and the distance of trigger objects
 	{
 		var size = new Vector2(_boxCollider.size.x * Mathf.Abs(_localScale.x), _boxCollider.size.y * Mathf.Abs(_localScale.y)) / 2;
 		var center = new Vector2(_boxCollider.offset.x * _localScale.x, _boxCollider.offset.y * _localScale.y);
@@ -216,7 +217,7 @@ public class CharacterController2D : MonoBehaviour
 		_raycastBottomLeft = _transform.position + new Vector3(center.x - size.x + SkinWidth, center.y - size.y + SkinWidth);
 	}
 
-	private void MoveHorizontally(ref Vector2 deltaMovement)
+	private void MoveHorizontally(ref Vector2 deltaMovement)//This works whit the movement of the character to set the collision barrier on the character
 	{
 		var isGoingRight = deltaMovement.x > 0;
 		var rayDistance = Mathf.Abs(deltaMovement.x) + SkinWidth;
@@ -254,7 +255,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	private void MoveVertically(ref Vector2 deltaMovement)
+	private void MoveVertically(ref Vector2 deltaMovement) //Use to set the barrier on the top of the character
 	{
 		var isGoingUp = deltaMovement.y > 0;
 		var rayDistance = Mathf.Abs(deltaMovement.y) + SkinWidth;
@@ -305,7 +306,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	private void HandleVerticalSlope(ref Vector2 deltaMovement)
+	private void HandleVerticalSlope(ref Vector2 deltaMovement)//This is use to indicate if there are slopes in the game what the character must do on the slopes
 	{
 		var center = (_raycastBottomLeft.x + _raycastBottomRight.x) / 2;
 		var direction = -Vector2.up;
@@ -334,8 +335,8 @@ public class CharacterController2D : MonoBehaviour
 		deltaMovement.y = raycastHit.point.y - slopeRayVector.y;
 	}
 
-	private bool HandleHorizontalSlope(ref Vector2 deltaMovement, float angle, bool isGoingRight)
-	{
+	private bool HandleHorizontalSlope(ref Vector2 deltaMovement, float angle, bool isGoingRight)//This is use to indicate if there are slopes in the game what the character must do on the slopes
+    {
 		if (Mathf.RoundToInt(angle) == 90)
 			return false;
 
@@ -355,7 +356,7 @@ public class CharacterController2D : MonoBehaviour
 		return true;
 	}
 
-	public void OnTriggerEnter2D(Collider2D other)
+	public void OnTriggerEnter2D(Collider2D other)//This is to trigger the barrier on the character with other trigger objects on entering
 	{
 		var parameters = other.gameObject.GetComponent<ControllerPhsyicsVolume2D>();
 		if (parameters == null)
@@ -364,8 +365,8 @@ public class CharacterController2D : MonoBehaviour
 		_overrideParameters = parameters.Parameters;
 	}
 
-	public void OnTriggerExit2D(Collider2D other)
-	{
+	public void OnTriggerExit2D(Collider2D other)//This is to trigger the barrier on the character with other trigger objects on exiting
+    {
 		var parameters = other.gameObject.GetComponent<ControllerPhsyicsVolume2D>();
 		if (parameters == null)
 			return;

@@ -1,4 +1,4 @@
-﻿//This class is used to define the path of the platforms in the scene view and is not shown in the game view
+﻿//This class is used to define the path of the platforms. Got this from Udemy
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +8,8 @@ public class PathDefinition : MonoBehaviour
 {
 	public Transform[] Points;
 
-	public IEnumerator<Transform> GetPathEnumerator(){
+	public IEnumerator<Transform> GetPathEnumerator()//Tells the game where to start of the platforms and where it ends
+    {
 		if (Points == null || Points.Length < 1)
 			yield break;
 		var direction = 1;
@@ -25,7 +26,8 @@ public class PathDefinition : MonoBehaviour
 		}
 	}
 
-	public void OnDrawGizmos(){
+	public void OnDrawGizmos() //This is used to draw a line for the platforms to make it easier to see in the Editor
+    {
 
 		if (Points == null || Points.Length < 2)
 			return;

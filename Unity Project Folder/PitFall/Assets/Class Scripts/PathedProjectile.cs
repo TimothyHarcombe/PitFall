@@ -1,4 +1,5 @@
-﻿// This class is used to Initalize the path of the projectile
+﻿/* This class is used to Initalize the path of the projectile and it sets the speed, sound and destry effect in the game.
+ * Got it from Udemy.*/
 
 using UnityEngine;
 
@@ -8,12 +9,14 @@ public class PathedProjectile : MonoBehaviour {
 	public AudioClip DestroySound;
 
 	public GameObject DestroyEffect;
-	public void Initalize (Transform destination, float speed) {
+	public void Initalize (Transform destination, float speed)
+    {
 		_destination = destination;
 		_speed = speed;
 	}
 
-	public void Update () {
+	public void Update () //Used for the destination of the projectile, destroy object and destroy effect
+    {
 		transform.position = Vector3.MoveTowards (transform.position, _destination.position, Time.deltaTime * _speed);
 
 		var distanceSquared = (_destination.transform.position - transform.position).sqrMagnitude;

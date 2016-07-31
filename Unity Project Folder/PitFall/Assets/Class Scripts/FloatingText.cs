@@ -1,12 +1,13 @@
-﻿//This class is use to control the floating text in the Gameskin resourse and is referenced in PointStar, Checkpoint, Player, LevelManager and GameHud 
+﻿/*This class is use to control the floating text in the Gameskin resourse and is referenced in PointStar, Checkpoint, 
+ * Player, LevelManager and GameHud. I found this on Udemy.*/ 
 
 using UnityEngine;
-using System.Collections;
 
 public class FloatingText : MonoBehaviour {
 	private static readonly GUISkin Skin = Resources.Load<GUISkin>("GameSkin");
 
-	public static FloatingText Show (string text, string style, IFloatingTextPositioner positioner) {
+	public static FloatingText Show (string text, string style, IFloatingTextPositioner positioner)
+    {
 		var go = new GameObject ("Floating Text");
 		var floatingText = go.AddComponent<FloatingText> ();
 		floatingText.Style = Skin.GetStyle (style);
@@ -21,7 +22,8 @@ public class FloatingText : MonoBehaviour {
 	public string Text { get {return _content.text; } set {_content.text = value;}}
 	public GUIStyle Style { get; set; }
 
-	public void OnGUI (){
+	public void OnGUI ()
+    {
 		var position = new Vector2 ();
 		var contentSize = Style.CalcSize (_content);
 		if (!_positioner.GetPosition (ref position, _content, contentSize)) {

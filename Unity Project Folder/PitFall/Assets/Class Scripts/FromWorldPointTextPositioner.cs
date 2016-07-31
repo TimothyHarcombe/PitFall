@@ -1,4 +1,4 @@
-﻿// This class is used to control the floting text position on the screen while in game play
+﻿//This class is used to control the floating text position on the screen while in game play. Found it in Udemy
 
 using UnityEngine;
 
@@ -9,14 +9,16 @@ public class FromWorldPointTextPositioner : IFloatingTextPositioner {
 	private readonly float _speed;
 	private float _yOffset;
 
-	public FromWorldPointTextPositioner(Camera camera, Vector3 worldPosition, float timeToLive, float speed){
+	public FromWorldPointTextPositioner(Camera camera, Vector3 worldPosition, float timeToLive, float speed)
+    {
 		_camera = camera;
 		_worldPosition = worldPosition;
 		_timeToLive = timeToLive;
 		_speed = speed;
 	}
 
-	public bool GetPosition (ref Vector2 position, GUIContent content, Vector2 size){
+	public bool GetPosition (ref Vector2 position, GUIContent content, Vector2 size)
+    {
 		if ((_timeToLive -= Time.deltaTime) <= 0)
 			return false;
 

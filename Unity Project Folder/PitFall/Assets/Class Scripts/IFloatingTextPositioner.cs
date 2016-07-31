@@ -1,4 +1,4 @@
-﻿//This class is used with the floating text
+﻿//This class is used with the floating text. Got it from Udemy
 
 using UnityEngine;
 

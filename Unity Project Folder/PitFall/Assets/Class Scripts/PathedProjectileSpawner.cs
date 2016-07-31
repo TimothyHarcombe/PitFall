@@ -1,7 +1,7 @@
-﻿//This class is going to control the path of the barrels that roll and do damage
+﻿/*This class is used to control the spawning of the barrels the leave the cannon and the end destination. It is also used for
+* the sound, spawn effect, fire rate and the speed of the projectiles. Got it from Udemy.*/
 
 using UnityEngine;
-using System.Collections;
 
 public class PathedProjectileSpawner : MonoBehaviour {
 	public Transform Destination;
@@ -15,11 +15,13 @@ public class PathedProjectileSpawner : MonoBehaviour {
 
 	private float _nextShotInSeconds;
 
-	public void Start () {
+	public void Start ()
+    {
 		_nextShotInSeconds = FireRate;
 	}
 
-	public void Update () {
+	public void Update ()//Used to update the info of what the projectiles need to do in the game
+    {
 		if ((_nextShotInSeconds -= Time.deltaTime) > 0)
 			return;
 
@@ -35,7 +37,8 @@ public class PathedProjectileSpawner : MonoBehaviour {
 
 	}
 
-	public void OnDrawGizmos () {
+	public void OnDrawGizmos () //Used to draw a line for the projectile so it is easier to see in the Editor
+    {
 		if (Destination == null)
 			return;
 

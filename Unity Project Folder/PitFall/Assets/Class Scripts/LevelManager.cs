@@ -1,4 +1,5 @@
-﻿//This is the level manager class that controls what happens in the levels of the game
+﻿/*This is the level manager class that controls what happens in the levels of the game. Found it on Udemy site they used the 
+ * Application.LoadLevel() but I changed it to the SceneManager.LoadScene().*/
 
 using System;
 using UnityEngine;
@@ -25,20 +26,15 @@ public class LevelManager : MonoBehaviour {
 	private int _currentCheckpointIndex;
 	private DateTime _started;
 	private int _savedPoints;
-	private LevelManager levelManager;
 
 	public Checkpoint DebugSpawn;
 	public int BonusCutoffSeconds;
 	public int BonusSecondMultiplier;
 
-	public void Awake () {
-		_savedPoints = GameManager.Instance.Points;
-		Instance = this;
-	}
-
-	public void Start () {
+	public void Start ()//Used this function to indicate where in the level is the character, the camera following the character and if the player dies.
+    {
 		_checkpoints = FindObjectsOfType<Checkpoint> ().OrderBy (t => t.transform.position.x).ToList ();
-		_currentCheckpointIndex = _checkpoints.Count > 0 ? 0 : -1;
+        _currentCheckpointIndex = _checkpoints.Count > 0 ? 0 : -1;
 
 		Player = FindObjectOfType<Player> ();
 		Camera = FindObjectOfType<CameraController> ();
@@ -68,7 +64,15 @@ public class LevelManager : MonoBehaviour {
 		#endif
 	}
 
-	public void Update () {
+    public void Awake()
+    {
+        _savedPoints = GameManager.Instance.Points;
+        Instance = this;
+    }
+
+
+    public void Update () //keeps track on the checkpoints, the distanse of the last checkpoint hit and the points 
+    {
 		var isAtLastCheckpoint = _currentCheckpointIndex + 1 >= _checkpoints.Count;
 		if (isAtLastCheckpoint)
 			return;
@@ -87,11 +91,13 @@ public class LevelManager : MonoBehaviour {
 
 	}
 
-	public void GotoNextLevel(string levelName){
+	public void GotoNextLevel(string levelName) //Used to go to the next level
+    {
 		StartCoroutine (GotoNextLevelCo (levelName));	
 	}
 
-	private IEnumerator GotoNextLevelCo(string levelName){
+	private IEnumerator GotoNextLevelCo(string levelName) //Used with the GotoNextLevel
+    {
 		Player.FinishLevel ();
 		GameManager.Instance.AddPoints (CurrentTimeBonus);
 		FloatingText.Show ("Level Complete!", "CheckpointText", new CenteredTextPositioner (.2f));
@@ -106,16 +112,15 @@ public class LevelManager : MonoBehaviour {
 			SceneManager.LoadScene (levelName);
 	}
 
-	public void KillPlayer () {
+	public void KillPlayer () //Used for when the character falls into the pits or dies 
+    {
 		StartCoroutine (KillPlayerCo ());
 	}
 
-	private IEnumerator KillPlayerCo () {
+	private IEnumerator KillPlayerCo () //Used with the KillPlayer function
+    {
 		Player.Kill ();
-		//Camera.IsFollowing = false;
 		yield return new WaitForSeconds(1.4f);
-
-		//Camera.Isfollowing = true;
 
 		if (_currentCheckpointIndex != -1)
 			_checkpoints [_currentCheckpointIndex].SpawnPlayer (Player);

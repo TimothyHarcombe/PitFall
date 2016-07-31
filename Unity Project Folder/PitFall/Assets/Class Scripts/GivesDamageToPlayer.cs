@@ -1,19 +1,20 @@
-﻿//This class it use to give the player damage in the game and to react to the damage given for example get hit backwards
+﻿//This class it use to give the player damage in the game and to react to the damage given for example get hit backwards. Got it from Udemy
 
 using UnityEngine;
-using System.Collections;
 
 public class GivesDamageToPlayer : MonoBehaviour {
 	public int DamageToGive = 10;
 
 	private Vector2 _lastPosition, _velocity;
 
-	public void LastUpdate () {
+	public void LastUpdate ()
+    {
 		_velocity = (_lastPosition - (Vector2)transform.position) / Time.deltaTime;
 		_lastPosition = transform.position;
 	}
 
-	public void OnTriggerEnter2D (Collider2D other) {
+	public void OnTriggerEnter2D (Collider2D other)
+    {
 		var player = other.GetComponent<Player> ();
 		if (player == null)
 			return;

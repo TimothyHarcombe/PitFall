@@ -1,11 +1,13 @@
-﻿//This class is used to control the time bonus in the game at each checkpoint and works with the GameManager and LevelManager class
+﻿/*This class is used to control the time bonus in the game at each checkpoint and works with the GameManager and 
+* LevelManager class. Got it from Udemy*/
 
 using UnityEngine;
 
 public class GameHud : MonoBehaviour {
 	public GUISkin Skin;
 
-	public void OnGUI () {
+	public void OnGUI () //Displays the points, time bonus and the lives in the game UI
+    {
 		GUI.skin = Skin;
 
 		GUILayout.BeginArea (new Rect (0, 0, Screen.width, Screen.height));

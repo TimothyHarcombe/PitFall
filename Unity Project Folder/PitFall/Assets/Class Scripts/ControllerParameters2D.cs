@@ -1,8 +1,7 @@
-﻿// This class is used with the CharacterController2D class for the gravity and how fast the player will slide on a slope
+﻿//This class is used to set the parameter on the characters jumping. I got this from Udemy
 
 using System;
 using UnityEngine;
-using System.Collections;
 
 [Serializable]
 public class ControllerParameters2D

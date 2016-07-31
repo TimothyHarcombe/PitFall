@@ -1,4 +1,4 @@
-﻿//Is used to control the path, speed and direction of the platforms in the game
+﻿//This is used to control the path, speed and direction of the platforms in the game. Found it on Udemy
 
 using System.Collections.Generic;
 using UnityEngine;

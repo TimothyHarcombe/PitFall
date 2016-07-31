@@ -1,4 +1,4 @@
-﻿// This class is used to control the center text that is used for the checkpoint floating text.
+﻿// This class is used to control the center text that is used for the checkpoint floating text. This I found in Udemy.
 
 using UnityEngine;
 
@@ -6,7 +6,8 @@ public class CenteredTextPositioner : IFloatingTextPositioner {
 	private readonly float _speed;
 	private float _textPosition;
 
-	public CenteredTextPositioner(float speed) {
+	public CenteredTextPositioner(float speed) 
+    {
 		_speed = speed;
 	}
 
